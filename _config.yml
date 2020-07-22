@@ -1,2 +1,4 @@
 name: Kevin Craig
 markdown: kramdown
+
+theme: jekyll-theme-minimal
