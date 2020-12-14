@@ -1,2 +1,2 @@
 # kevcraig.github.io
-It's my site!
+A place to link projects & personal info
