@@ -32,7 +32,7 @@ title: Kevin Craig
 
 </div><!-- /.blurb -->
 <div style="width: 50%; margin: 0 auto;">
-	<iframe src="bokeh_wmata.html" frameborder="0" width="600" height="520"	></iframe>
+	<iframe src="bokeh_wmata.html" frameborder="0" width="600" height="530"	></iframe>
 </div>
 
 <div class="blurb">
@@ -80,7 +80,7 @@ title: Kevin Craig
 	
 	var simulation = d3.forceSimulation()
 		.force("link", d3.forceLink().id(function(d) { return d.id; }))
-		.force("charge", d3.forceManyBody().strength(-15))
+		.force("charge", d3.forceManyBody().strength(1))
 		.force("center", d3.forceCenter(width / 2, height / 2));
 	
 	d3.json("wmata.json", function(error, graph) {
