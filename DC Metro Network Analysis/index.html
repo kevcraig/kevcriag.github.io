@@ -6,13 +6,13 @@ title: Kevin Craig
 <div class="blurb">
 	<h1> DC Metro Network Analysis</h1>
 	<p>
-		Network analysis is often applied to the social and online systems around us, ex. Facebook friend networks. A more concrete example of a physical network is a metro system.
+		Network analysis is often applied to the social and online systems around us, ex. Facebook friend networks. A more concrete example of a physical network, however, is a metro system.
 	</p>
 	<p>
-		The DC metro is a straight forward example of a fully connected network system. The network can be described as nodes (stations) and edges (railway paths). Some stations are more important to the network than others because they are connected to many other stations.
+		The DC metro is a straightforward example of a fully connected network system. The network can be described as nodes (stations) and edges (railway paths). With each additional connection to other stations, a station's importance to the network becomes more critical. 
 	</p>
 	<p>
-		How can we understand the importance of each metro station? Metro nodes can be described with three main metrics: 
+		Given this information, how can we understand the importance of each metro station? Metro nodes can be described with three main metrics: 
 	</p>
 	<p> 
 		<b>	1. Degree:</b> How many other stations a rider can reach from a given station
@@ -23,24 +23,23 @@ title: Kevin Craig
 	</p>
 
 	<p>
-		In order to understand the degree, betweenness, and closeness of a given station, we need to represent the metro system in a dataset that the computer can understand. The best way to do this is through an adjacency matrix of stations. Luckily WMATA provides a series of <a href="https://developer.wmata.com/" target = "_blank"> API products</a>, that make fetching station and line data pretty easy. Code on how to build the adjacency matrix is on my github <a href="https://github.com/kevcraig/DC-Metro-Analysis" target = "_blank">here</a>. I was surprised this data was not available anywhere I looked online, so I hope it is useful for anyone else who wants to explore metro analytics.
+		To understand the degree, betweenness, and closeness of a given station, we first need to represent the metro system in a dataset that the computer can understand. The best way to accomplish this is through an adjacency matrix of stations. Luckily, the WMATA provides a series of <a href="https://developer.wmata.com/" target = "_blank"> API products</a>, that make fetching station and line data pretty easy. Code on how to build the adjacency matrix is on my GitHub <a href="https://github.com/kevcraig/DC-Metro-Analysis" target = "_blank">here</a>. I was surprised this data was not available anywhere I looked online, so I hope it is useful for anyone else who wants to explore metro analytics.
 	</p>
 	<p>
-		Once the network is expressed in an adjacency matrix, Python can help us calculate the network statistics we discussed above. Finally we can overlay those stats on top of network line and station shapefiles provided by WMATA and visualized via geopandas. Hover over points to view node statistics and press the magnifying glass to zoom.
+		Once the network is expressed in an adjacency matrix, Python can help us calculate the network statistics that we discussed above. Finally, we can overlay those stats on top of network line and station shapefiles provided by WMATA and visualized via geopandas. Hover over points to view node statistics and press the magnifying glass to zoom.
 	</p>			 
-	
-
 </div><!-- /.blurb -->
+
 <div style="width: 50%; margin: 0 auto;">
 	<iframe src="bokeh_wmata.html" frameborder="0" width="600" height="530"	></iframe>
 </div>
 
 <div class="blurb">
 	<p>
-		Before I started this project I assumed Metro Center would be the most "important" station based on my ridership patterns, but it looks like L'Enfant Plaza takes the cake! L'Enfant has a degree of 5, betweenness of .571 and closeness of .144 not to mention an underground food court. Honorable mention to Pentagon, the most important station outside of DC in terms of betweenness and closeness centrality.
+		Before I started this project, I assumed Metro Center would be the most "important" station based on my ridership patterns while living in DC. However, given the findings on this analysis, it looks like L'Enfant Plaza is the most important! L'Enfant has a degree of 5, betweenness of .571, and closeness of .144 not to mention an underground food court. Honorable mention goes to the Pentagon, the most important station outside of DC in terms of betweenness and closeness centrality.
 	</p>
 	<p>
-		Instead of using set shapefiles to draw the network, what if we let the computer decide how it looks? Force directed algorithms allow us to visualize networks as a nodes and edges that repel against each other based on a given charge. The D3 javascript library is a popular tool for building force directed networks - I implemented D3 to build a free-flowing DC metro system below. Pull a node with your mouse and watch the network update positions.
+		Instead of using set shapefiles to draw the network, what if we let the computer decide how it looks? Force-directed algorithms allow us to visualize networks as a nodes and edges that repel against each other based on a given charge. The D3 JavaScript library is a popular tool for building force-directed networks - I implemented D3 to create a free-flowing DC metro system below, as seen below. Pull a node with your mouse and watch the network update positions.
 	</p>
 </div>
 
@@ -157,3 +156,12 @@ title: Kevin Craig
 	
 	</script>
 </div>
+
+<div class="blurb">
+	<p>
+		Through network analysis, we can understand which stations are most important in terms of degree and centrality, then visualize the network with Python Bokeh or D3. A next step here would be to weight the nodes and edges based on how many people flow through a station each day and where they travel. This would give us a better idea of node centrality and could be interesting to view through time, especially through the workday. 
+	</p>
+	<p>
+		For anyone hoping to visualize networks in D3, I found that the library had a steep learning curve for someone without previous experience in JavaScript, but provided some really unique and customizable results once you got the hang of it. Using D3 with a physical network like a metro is kind of trivial since there is already a real physical representation, but would be very useful when visualizing social networks. A common example of D3 with social networks is here with Les Mis characters.
+	</p>
+</div><!-- /.blurb -->
