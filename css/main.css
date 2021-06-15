@@ -42,3 +42,10 @@ ul.posts li {
     list-style: none;
 }
 
+ol{
+    font-size: 100%;
+}
+
+ul{
+    font-size: 100%;
+}
