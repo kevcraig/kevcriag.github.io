@@ -63,9 +63,20 @@ ul.posts li {
     list-style-type: circle;
 }
 
-.one {
+ul.cirlce {
     margin: 20px auto 40px; 
     font-size: 1.5em;
-    line-height: 1.4em;
     list-style: circle;
+}
+
+ul.square {
+    margin: 20px auto 40px; 
+    font-size: 1.3em;
+    list-style: circle;
+}
+
+ol.upperroman{
+    margin: 20px auto 40px; 
+    font-size: 1.5em;
+    list-style-type: upper-roman;
 }
