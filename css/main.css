@@ -72,7 +72,7 @@ ul.cirlce {
 ul.square {
     margin: 20px auto 40px; 
     font-size: 1.3em;
-    list-style: circle;
+    list-style: square;
 }
 
 ol.upperroman{
