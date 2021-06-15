@@ -62,10 +62,11 @@ ul.posts1 {
 
 ul.posts1 li {
     list-style-type: circle;
+    line-height: 1.5em;
 }
 
 ul.posts2 { 
-    line-height: 1.3em;
+    line-height: 1.5em;
     font-size: .8em;
 }
 
