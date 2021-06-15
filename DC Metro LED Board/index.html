@@ -10,7 +10,7 @@ title: Kevin Craig
     </center>
     <h3> Overview </h3>
     <p>
-        In April, I wrote <a> <href = https://kevcraig.github.io/DC%20Metro%20Network%20Analysis/> an analysis </a> of the DC metro system. In the process, gained access to the WMATA metro API. One endpoint of the API was current predictions for each train and station within the DC metro network, this sparked an idea for a DIY metro board for my U-Street apartment. The goal was to build something that resembles the actual train prediction screens found in DC metro stations but have it in my own living room, all made possible by the WMATA API and some hardware found on the internet. 
+        In April, I wrote <a> <href = https://kevcraig.github.io/DC%20Metro%20Network%20Analysis/> an analysis </a> of the DC metro system. In the process of that project, I gained developer access to the WMATA metro API. One endpoint of the API was current predictions for each train and station within the DC metro network, this sparked an idea for a DIY metro board for my U-Street apartment. The goal was to build something that resembles the actual train prediction screens found in DC metro stations but have it in my own living room, all made possible by the WMATA API and some hardware found on the internet. 
     </p>
     
     <h3>Process</h3>
@@ -19,7 +19,7 @@ title: Kevin Craig
     </p>
         <h4><b>Hardware:</b> </h4>
         <p>
-            To build a real time metro prediction board, you need a screen, a computer to connect to the screen and API, and a power connection. Hardware costs $118 if you buy everything new from Adafruit.
+            To build a real time metro prediction board, you need a screen, a computer to connect to the screen and API, and a power connection. Hardware costs $118 if you buy everything new from <a href="https://www.adafruit.com/"> Adafruit</a>.
         </p>        
             <ul class = posts1>
                 <li> Raspberry Pi ZeroWH</li>
@@ -40,7 +40,7 @@ title: Kevin Craig
                 </ul>
             </ul>
         <p>
-            Basic architecture for the system is displayed below
+            Basic architecture for the system is displayed below:
         </p>
         <p>
         <center>
@@ -70,7 +70,7 @@ title: Kevin Craig
                 Pulling WMATA train predictions for a given station every 10 seconds was simple enough through their WMATA's developer API. The harder part was figuring out how to display and update the predictions on the LED board. Luckily, the rpi-rgb-led-matrix  <a> <href = https://github.com/hzeller/rpi-rgb-led-matrix> rpi-rgb-led-matrix library </a> built by Henner Zeller can be used to control LED panels from a computer like a Raspberry Pi. With the rpi-rgb-led-matrix Python bindings, you can choose to display scrolling text or static images on a single board or string of boards. I preferred the PNG image option so I could display three incoming trains at once; which meant I first needed to convert a string object to a PNG image.  I've played with scraping text off images with OCR packages, but had never thought of converting a text to an image. Luckily, the Python Imaging Library (PIL/Pillow) simplified this process to a few lines of code.
             </p>
             <p>
-                A basic process flow is below. The Prod_Prediction_Ticker.py and Prod_Display_Image.py files run concurrently and refresh every 10 seconds.
+                A basic process flow is outlined below. The Prod_Prediction_Ticker.py and Prod_Display_Image.py files run concurrently and refresh every 10 seconds.
             </p>
             <p>
                 <center>
@@ -91,7 +91,7 @@ title: Kevin Craig
             </ul>
         <li>Linux syntax is important</li>
             <ul class = posts2> 
-                <li> Everything I did on the Raspberry Pi from downloading libraries, scping files, updating python scripts was through the command line. A basic understanding of the useful commands was super important to work quickly. I started this project really only knowing cd and ls but I quickly became more comfortable in the command line. I included useful commands in this projects Github readme that I used throughout this project. </li>
+                <li> Everything I did on the Raspberry Pi from downloading libraries, scping files, updating python scripts was through the command line. A basic understanding of the useful commands was super important to work quickly. I started this project really only knowing cd and ls but I quickly became more comfortable in the command line. I included useful commands in this projects <a href="https://github.com/kevcraig/LED-Metro-Sign"> Github repo </a> that I used throughout this project. </li>
             </ul>
     </ul>
     <p>
