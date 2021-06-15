@@ -64,28 +64,10 @@ ul.posts1 li {
 }
 
 ul.posts2 { 
-    line-height: .8em;
+    line-height: 1em;
     font-size: .8em;
 }
 
 ul.posts2 li {
     list-style-type: circle;
-}
-
-.cirlce {
-    margin: 20px auto 40px; 
-    font-size: 1.5em;
-    list-style: circle;
-}
-
-.square {
-    margin: 20px auto 40px; 
-    font-size: 1em;
-    list-style: square;
-}
-
-.upperroman{
-    margin: 20px auto 40px; 
-    font-size: 1.5em;
-    list-style-type: upper-roman;
 }
