@@ -43,9 +43,13 @@ ul.posts li {
 }
 
 ol{
-    font-size: .8em;
+    font-size: 1em;
 }
 
 ul{
-    font-size: .8em;
+    font-size: 1em;
+}
+
+li{
+    font-size: .9em;
 }
