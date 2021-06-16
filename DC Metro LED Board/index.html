@@ -10,7 +10,7 @@ title: Kevin Craig
     </center>
     <h3> Overview </h3>
     <p>
-        In April, I wrote <a href = "https://kevcraig.github.io/DC%20Metro%20Network%20Analysis/" target="_blank"> an analysis </a> of the DC metro system. In the process of that project, I gained developer access to the WMATA metro API. One endpoint of the API was current predictions for each train and station within the DC metro network, this sparked an idea for a DIY metro board for my U-Street apartment. The goal was to build something that resembles the actual train prediction screens found in DC metro stations but have it in my own living room, all made possible by the WMATA API and some hardware found on the internet. 
+        In April, I wrote about a <a href = "https://kevcraig.github.io/DC%20Metro%20Network%20Analysis/" target="_blank"> network analysis of the DC metro system </a>. In the process of finding metro data for that project, I gained developer access to the WMATA metro API. One endpoint of the API was current predictions for each train and station within the DC metro network, this sparked an idea for a DIY metro board for my U-Street apartment. The goal was to build something that resembles the actual train prediction screens found in DC metro stations but have it in my own living room, all made possible by the WMATA API and some hardware found on the internet. 
     </p>
     
     <h3>Process</h3>
@@ -24,7 +24,7 @@ title: Kevin Craig
             <ul class = posts1>
                 <li> Raspberry Pi ZeroWH</li>
                     <ul class = posts2> 
-                        Raspberry Pi with WIFI access and GPIO headers to connect to the AdaFruit Bonnet. Any Raspberry Pi / Adruino with these specs would work, but this was the cheapest option I could find </li>
+                        <li> Raspberry Pi with WIFI access and GPIO headers to connect to the AdaFruit Bonnet. Any Raspberry Pi / Adruino with these specs would work, but this was the cheapest option I could find </li>
                     </ul>
             <li> 16GB Micro SD Card </li> 
                 <ul class = posts2>
@@ -58,7 +58,7 @@ title: Kevin Craig
                     <li>Update every 10 seconds</li>
                     <li>Don’t get rate limited</li>
                     <li>Store predictions as PNG</li>
-                    <li>User can change station as needed</li>
+                    <li>Allow user to change station as needed</li>
                 </ol>
                 <li> <em> Requirements</em>: Display train predictions on LED board </li> 
                 <ol class = posts2>
@@ -67,10 +67,10 @@ title: Kevin Craig
                 </ol>
             </ol>
             <p>
-                Pulling WMATA train predictions for a given station every 10 seconds was simple enough through their WMATA's developer API. The harder part was figuring out how to display and update the predictions on the LED board. Luckily, the rpi-rgb-led-matrix  <a href = "https://github.com/hzeller/rpi-rgb-led-matrix"> rpi-rgb-led-matrix library </a> built by Henner Zeller can be used to control LED panels from a computer like a Raspberry Pi. With the rpi-rgb-led-matrix Python bindings, you can choose to display scrolling text or static images on a single board or string of boards. I preferred the PNG image option so I could display three incoming trains at once, which meant I first needed to convert a string object to a PNG image file.  I've played with scraping text off images with OCR packages, but had never thought of converting a text to an image. Luckily, the Python Imaging Library (PIL/Pillow) simplified this process to a few lines of code.
+                Pulling WMATA train predictions for a given station every 10 seconds was simple enough through the WMATA's developer API. The harder part was figuring out how to display and update the predictions on the LED board. Luckily, the <a href = "https://github.com/hzeller/rpi-rgb-led-matrix"> rpi-rgb-led-matrix library </a> built by Henner Zeller can be used to control LED panels from a computer like a Raspberry Pi. With the rpi-rgb-led-matrix Python bindings, you can choose to display scrolling text or static images on a single board or string of boards. I preferred the PNG image option so I could display three incoming train predictions at once, which meant I needed to convert JSON API responses to a PNG image file the rpi-rgb-led-matrix library could handle.  I've played with scraping text off images with OCR packages, but had never thought of converting a text to an image. Luckily, the Python Imaging Library (PIL/Pillow) simplified this process to a few lines of code.
             </p>
             <p>
-                A basic process flow is outlined below. The Prod_Prediction_Ticker.py and Prod_Display_Image.py files run concurrently and refresh every 10 seconds.
+                A basic process flow for the system is outlined below. The Prod_Prediction_Ticker.py and Prod_Display_Image.py files run concurrently and refresh every 10 seconds.
             </p>
             <p>
                 <center>
